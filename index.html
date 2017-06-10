@@ -1,1 +1,355 @@
-<html><body><h1>It works!123456</h1></body></html>
+<!doctype html>
+<html>
+<head>
+<script src="jquery-3.1.1.js"></script>
+
+<!--屏幕自适应-->
+<script>  
+	var windowWidth; //声明全局变量
+$(document).ready(function(){
+  
+    //初始化宽度
+	windowWidth =  $(window).width(); 
+	
+	if(windowWidth>=700)
+	    {
+	    /*广告图*/
+	    $(".adv img").attr("src", "images/adv_s.jpg");		
+	    }
+	    else
+	    {
+	    $(".adv img").attr("src", "images/big_ad.jpg");			
+	    }
+	
+	if(windowWidth>=1200)
+	    {
+		$(".nav").show(1000);
+		/*LOGO*/
+		$(".LOGOBlock").hide(1000);
+		
+		/*白色框*/
+		$(".bigContainer dl").addClass("bigContainerDlChange");		
+		$(".bigContainer .lastGrayLine").addClass(".bigContainer lastGrayLineChange");
+		
+		/*蓝色框*/
+		$(".bigContainerBlue dl").addClass("bigContainerBlueDlChange");
+		
+		/*h1字体*/
+		$(".main h1").addClass("h1Change");
+		}
+	else
+	    {	
+		$(".nav").hide(0);
+		/*白色框*/
+		$(".bigContainer dl").removeClass("bigContainerDlChange");
+		$(".bigContainer .lastGrayLineChange").removeClass(".bigContainer lastGrayLineChange");	
+			
+		/*蓝色框*/
+		$(".bigContainerBlue .bigContainerBlueDlChange").removeClass(".bigContainerBlue bigContainerBlueDlChange");	
+		
+		/*h1字体*/
+		$(".main h1").removeClass("h1Change");			
+		}
+    //当文档窗口发生改变时 触发  
+    $(window).resize(function(){  
+	windowWidth =  $(window).width(); 
+	
+	if(windowWidth>=700)
+	    {
+		/*广告图*/
+	    $(".adv img").attr("src", "images/adv_s.jpg");		
+		}
+	else
+	    {
+	    $(".adv img").attr("src", "images/big_ad.jpg");			
+		}
+		 
+	if(windowWidth>=1200)
+	    {
+		$(".nav").show(1000);
+		/*LOGO*/
+		$(".LOGOBlock").hide(1000);
+		/*白色框*/
+		$(".bigContainer dl").addClass("bigContainerDlChange");		
+		$(".bigContainer .lastGrayLine").addClass(".bigContainer lastGrayLineChange");
+		
+		/*蓝色框*/
+		$(".bigContainerBlue dl").addClass("bigContainerBlueDlChange");
+		
+		/*h1字体*/
+		$(".main h1").addClass("h1Change");
+		}
+	else
+	    {
+		$(".nav").hide(0);	
+		/*白色框*/
+		$(".bigContainer dl").removeClass("bigContainerDlChange");
+		$(".bigContainer .lastGrayLineChange").removeClass(".bigContainer lastGrayLineChange");	
+			
+		/*蓝色框*/
+		$(".bigContainerBlue .bigContainerBlueDlChange").removeClass(".bigContainerBlue bigContainerBlueDlChange");
+		/*h1字体*/
+		$(".main h1").removeClass("h1Change");					
+		}
+    })  
+    }) 
+
+</script>  
+
+
+<!--收起logo-->
+<script>
+$(function(){
+	$(".arrow").click(function(){
+		$(".LOGOBlock").slideUp(1000);
+	})
+})
+$(function(){
+	$(".contact").click(function(){
+		prompt("Please copy our phone number", "0422385445");
+	})
+})
+
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style>
+
+/*清除默认值*/
+*{ margin:0; padding:0;font-family: 'Open Sans', sans-serif; font: normal 100%}
+li{ list-style:none;}
+div{margin:0; padding:0}
+
+/*LOGOBlock*/
+.LOGOBlock{ background-color:white;width:100%;}
+.LOGO{ max-width:219px; width:35%;padding-top:183px; padding-bottom:110px;margin-top:0; margin-left:auto; margin-right:auto; background-color:white;}
+
+.column {max-width: 92px; width:15%; margin-left:auto; margin-right:auto;}
+.arrow{padding-top: 77.78%;  /* 70px/92px = 0.7778 */
+       background-image: url(images/arrow.jpg);
+       background-size: cover;
+	   background-position: center;cursor:pointer;}
+.bottom{ width:100%; height:13px; background-image:url(images/bottom.jpg); background-repeat:repeat-x}
+
+/*实现动画效果*/
+.arrow:hover{ background-image:url(images/arrow_click.jpg)}
+
+
+/*title*/
+.title{ width:100%; background-color:#dce9f1}
+.title p{ padding-bottom:20px; padding-top:15px; margin-left:auto; margin-right:auto; width:70%}
+.title img{max-width:443px; width:100%}
+
+/*contact*/
+.contact{width:100%;}
+.contact p{ padding-bottom:5px; padding-top:5px;max-width:532px; margin-left:auto; margin-right:auto; width:85%}
+.contact img{width:100%; }
+
+
+/*广告栏*/
+.adv{width:100%; max-height:350px; overflow:hidden; margin-left:auto; margin-right:auto}
+.adv img{width:100%; display:block}
+
+/*导航栏*/
+
+.nav{ background-color:#ecf4f8; width:100%; overflow:hidden}
+.nav ul{ width:1150px; margin-left:auto; margin-right:auto}
+.nav li{ width:20%;float:left;display:block;  }
+.nav a{ display:block; text-align:center; padding-top:5px; padding-bottom:5px; cursor:pointer}
+.nav a:hover{ background-color:#ffb435}
+.nav .activeNav{background-color:#289ed4; color:white}
+
+/*宽度控制*/
+
+
+/*service*/
+.main{width:100%;margin-top:10px; overflow:hidden; }
+.main .p1{ width:38px; height:55px; background-image:url(images/blue_point.jpg); margin-left:6%; margin-right:2%;  float:left}
+.main li{width:80%}
+.main .textBox{ width:90%;float:left}
+.main h1{font-size:1.2em; margin-top:9px; color:#028024}
+
+/*自适应*/
+.main .h1Change{font-size:2em; margin-top:9px; color:#028024}
+
+/*白色框*/
+.bigContainer{margin-left:2.5%; margin-right:2.5%; position:relative; overflow:hidden; background-image:url(images/white_left.jpg), url(images/white_right.jpg); background-repeat:repeat-y, repeat-y; background-position:left, right}
+
+.whiteTop{ width:100%; height:44px;float:left; position:absolute; background-image:url(images/white_up.jpg)}
+.leftTop{ width:33px; height:44px; float:left; position:absolute; z-index:1; background-image:url(images/white_left_up.jpg)}
+.rightTop{ width:31px; height:44px; float:right;position:absolute; z-index:1; right:0; background-image:url(images/white_right_up.jpg)}
+
+.whiteBottom{width: 100%;height: 48px;float: left;position: absolute; bottom:0; background-image:url(images/white_bottom.jpg);background-repeat: repeat-x;}
+.leftBottom{ width:34px; height:48px; float:left; position:absolute; z-index:1;bottom:0; background-image:url(images/white_left_bottom.jpg)}
+.rightBottom{ width:28px; height:48px; float:right;position:absolute; z-index:1; bottom:0; right:0; background-image:url(images/white_right_bottom.jpg)}
+
+/*内容框*/
+.content1{ overflow:hidden; margin-left:10px; margin-top:20px}
+
+/*自适应*/
+.bigContainerDlChange{max-width:490px; padding-left:5%; margin-right:inherit;  float:left;}
+
+
+.bigContainer dl{width:75%;margin-left:auto; margin-right:auto}
+.bigContainer dd{ font-size:1.25em; width:100%; padding-top:25px;text-align: center; margin-bottom:0; }
+.bigContainer dd p{width:100%; height:1px; background-image:url(images/gray_line.jpg); background-repeat:repeat-x; position: relative; bottom:-15px }
+
+/*自适应*/
+.bigContainer .lastGrayLine{width:100%; height:1px; background-image:url(images/gray_line.jpg); background-repeat:repeat-x; position: relative; bottom:-15px }
+
+.bigContainer .lastGrayLineChange{ background-image:none}
+
+.bigContainer ul{  margin-bottom:50px }
+.bigContainer li{ font-size:1.25em; width:80%; margin-left:auto; margin-right:auto; padding-top:35px;text-align: left; margin-bottom:35px;}
+
+.lastLine1{ padding-bottom:0;}
+.lastLine2{ padding-bottom:50px;}
+.lastLine3{ padding-bottom:0;}
+
+
+/*results*/
+.main .p2{ width:38px; height:55px; background-image:url(images/yellow_point.jpg); margin-left:6%; margin-right:2%;  float:left}
+
+/*蓝色框*/
+.bigContainerBlue{width:95%; margin-left:2.5%; position:relative; overflow:hidden; background-color:#ecf4f8;background-image:url(images/blue_left.jpg), url(images/blue_right.jpg); background-repeat:repeat-y, repeat-y; background-position:left, right}
+
+.blueTop{ width:100%; height:52px;float:left; position:absolute; background-image:url(images/blue_up.jpg)}
+.blueLeftTop{ width:40px; height:52px; float:left; position:absolute; z-index:1; background-image:url(images/blue_left_up.jpg)}
+.blueRightTop{ width:28px; height:52px; float:right;position:absolute; z-index:1; right:0; background-image:url(images/blue_right_up.jpg)}
+
+.blueBottom{width: 100%;height: 51px;float: left;position: absolute; bottom:0; background-image:url(images/blue_bottom.jpg);background-repeat: repeat-x;}
+.blueLeftBottom{ width:40px; height:51px; float:left; position:absolute; z-index:1;bottom:0; background-image:url(images/blue_left_bottom.jpg)}
+.blueRightBottom{ width:29px; height:51px; float:right;position:absolute; z-index:1; bottom:0; right:0; background-image:url(images/blue_right_bottom.jpg)}
+
+/*内容框*/
+.bigContainerBlue dl{width:75%;margin-left:auto; margin-right:auto;}
+.bigContainerBlue dd{ font-size:1.25em; width:100%; padding-top:25px;text-align: center; margin-bottom:10px; background-image:url(images/gray_line.jpg); background-repeat:repeat-x; background-position:bottom; background-position:}
+.bigContainerBlue .pic{ padding-top:0;padding-bottom:50px; background-image:none; width:100%}
+
+/*自适应*/
+.bigContainerBlueDlChange{max-width:490px; padding-left:5%; margin-right:inherit;  float:left;}
+
+/*页脚*/
+.emptyBlock{ height:50px; width:100%}
+.blueBlock{ height:150px; width:100%; background-color:#dce9f0; text-align:center; padding-top:20px }
+
+</style>
+<title>Supreme Kleening</title>
+</head>
+<body>
+<!--LOGO-->
+<div class="LOGOBlock">
+  <div class="LOGO"><img src="images/logo.jpg" alt="Supreme Kleening" width="100%"></div>  
+  <div class="column"><div class="arrow"></div></div>
+  <div class="bottom"></div>
+</div>
+
+<div class="title">
+<p><img src="images/logo_s.jpg" alt="Supreme Kleening"></p>
+</div>
+
+<div class="contact">
+<p><img src="images/contact.jpg" alt="Contact: Natalie Phone number: 0422385445 Email address: Natalie@supermekleening.com"></p>
+</div>
+
+<div class="adv"><img src="images/adv_s.jpg" alt="YOUR SATISFATION MATTERS 100% GUARANTEED"></div>
+
+<div class="nav">
+  <ul>
+    <li><a class="activeNav">HOME</a></li>
+    <li><a>ABOUT</a></li>
+    <li><a>SERVICES</a></li>
+    <li><a>WORK-EFFECT</a></li>
+    <li><a>CONTACT</a></li>
+  </ul>
+</div>
+
+<!--正文1-->
+<ul class="main">
+  <li><p class="p1"></p><p class="textBox"><h1>Our service include:</h1></p></li>
+</ul>
+
+<div class="bigContainer">
+  <p class="leftTop"></p>
+  <p class="rightTop"></p>
+  <p class="whiteTop"></p>
+    
+  <p class="whiteBottom"></p>
+  <p class="leftBottom"></p>
+  <p class="rightBottom"></p>  
+    <div class="content1">
+    <dl>
+      <dd>Regular house cleaning<p></p></dd>
+      <dd>Upholstery cleaning<p></p></dd>
+      <dd>Deep mattress cleaning<p></p></dd>
+      <dd class="lastLine1">Carpet cleaning<p class="lastGrayLine"></p></dd>
+    </dl>  
+    <dl>  
+      <dd>Exit/end of lease cleans<p></p></dd>
+      <dd>Inspection cleans<p></p></dd>
+      <dd>Windows<p></p></dd>
+      <dd class="lastLine2">Stripping and sealing</dd>    
+    </dl>
+  </div>
+</div>
+<p></p>
+
+<!--正文2-->
+<ul class="main">
+  <li><p class="p2"></p><p class="textBox"><h1>Surprising results of our work:</h1></p></li>
+</ul>
+
+<div class="bigContainerBlue">
+  <p class="blueLeftTop"></p>
+  <p class="blueRightTop"></p>
+  <p class="blueTop"></p>
+    
+  <p class="blueBottom"></p>
+  <p class="blueLeftBottom"></p>
+  <p class="blueRightBottom"></p>  
+    <div class="content1">
+    <dl>
+      <dd>Carpet cleaning</dd>
+      <dd class="pic"><img src="images/result1.jpg" alt="Result1" width="100%"></dd>
+    </dl>  
+    <dl>  
+      <dd>Bathroom cleaning</dd>
+      <dd class="pic"><img src="images/result2.jpg" alt="Result2"  width="100%"></dd>   
+    </dl>
+  </div>
+</div>
+
+<!--正文3-->
+<ul class="main">
+  <li><p class="p1"></p><p class="textBox"><h1>About us:</h1></p></li>
+</ul>
+
+<div class="bigContainer">
+  <p class="leftTop"></p>
+  <p class="rightTop"></p>
+  <p class="whiteTop"></p>
+    
+  <p class="whiteBottom"></p>
+  <p class="leftBottom"></p>
+  <p class="rightBottom"></p>  
+    <div class="content1">
+    <ul>
+      <li>
+      We are reliable cleaners that offer weekly, monthly, fortnightly or whenever you likey cleaning!!! <br><br>
+
+Come home to a clean home and relax, have us clean your home for you... <br><br>
+
+We are happy, friendly, honest, professional cleaners that do a really good job as we believe in top service and our clients are our number one... <br><br>
+
+What are you waiting for??? Call or message one of our friendly staff today... <br>
+    </li>
+   </ul>
+  </div>
+</div>
+<div class="emptyBlock"></div>
+<div class="blueBlock">Copyright &copy; 2016 C.L</div>
+
+</body>
+</html>
